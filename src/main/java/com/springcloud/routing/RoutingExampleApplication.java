@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-//@RefreshScope
 @SpringBootApplication
 public class RoutingExampleApplication {
 
@@ -15,7 +14,7 @@ public class RoutingExampleApplication {
 		SpringApplication.run(RoutingExampleApplication.class, args);
 	}
 	
-	@Value("${message:Default message}")
+	@Value("${message:Default message says Hi}")
 	private String message;
 	
 	@RequestMapping(value = "/available")
@@ -26,6 +25,11 @@ public class RoutingExampleApplication {
 	@RequestMapping(value = "/checkout")
 	public String checkout() {
 		return "This is checkout response";		
+	}	
+	
+	@RequestMapping(value = "/")
+	public String home() {
+		return "Welcome to spring boot";		
 	}	
 
 }
